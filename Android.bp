@@ -17,7 +17,7 @@
 android_app {
     name: "RealmeProximityHelper",
 
-    srcs: ["src/**/*.java"],
+    srcs: ["src/**/*.kt"],
 
     manifest: "AndroidManifest.xml",
 

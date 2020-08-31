@@ -17,20 +17,20 @@
  * class to hook in and start the required listeners.
  * 
  */
+package co.hyper.proximityservice
 
-package co.hyper.proximityservice;
+import android.content.BroadcastReceiver
+import android.content.Context
+import android.content.Intent
+import android.util.Log
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.util.Log;
+class BootCompletedReceiver : BroadcastReceiver() {
+    override fun onReceive(context: Context, intent: Intent) {
+        Log.d(TAG, "Starting")
+        context.startService(Intent(context, RealmeProximityHelperService::class.java))
+    }
 
-public class BootCompletedReceiver extends BroadcastReceiver {
-    private static final String TAG = "RealmeProximityHelper";
-
-    @Override
-    public void onReceive(final Context context, Intent intent) {
-        Log.d(TAG, "Starting");
-        context.startService(new Intent(context, RealmeProximityHelperService.class));
+    companion object {
+        private const val TAG = "RealmeProximityHelper"
     }
 }
